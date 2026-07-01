@@ -1,0 +1,23 @@
+{
+  "op": "resolve_timezone",
+  "input": {
+    "zoneId": "UTC"
+  },
+  "expected": {
+    "error": {
+      "code": "SCHEMA_VALIDATION_ERROR",
+      "details": {},
+      "message": "Provide exactly one of `wall` or `instant`",
+      "retryable": false
+    },
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": false
+  }
+}

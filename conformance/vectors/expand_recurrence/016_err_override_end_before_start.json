@@ -1,0 +1,64 @@
+{
+  "op": "expand_recurrence",
+  "input": {
+    "master": {
+      "id": "m",
+      "calendarId": "c",
+      "start": {
+        "year": 2025,
+        "month": 1,
+        "day": 1,
+        "hour": 9,
+        "minute": 0,
+        "second": 0
+      },
+      "end": {
+        "year": 2025,
+        "month": 1,
+        "day": 1,
+        "hour": 9,
+        "minute": 30,
+        "second": 0
+      },
+      "timeZone": "America/New_York",
+      "recurrenceRule": {
+        "frequency": "DAILY",
+        "count": 3
+      }
+    },
+    "dstPolicy": {
+      "gap": "earliest",
+      "overlap": "earliest"
+    },
+    "overrides": [
+      {
+        "recurrenceId": {
+          "epochMs": 1735826400000
+        },
+        "start": {
+          "epochMs": 1735848000000
+        },
+        "end": {
+          "epochMs": 1735844400000
+        }
+      }
+    ]
+  },
+  "expected": {
+    "error": {
+      "code": "INVALID_INTERVAL",
+      "details": {},
+      "message": "overrides[0] end precedes start",
+      "retryable": false
+    },
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": false
+  }
+}

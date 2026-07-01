@@ -1,0 +1,51 @@
+{
+  "op": "create_event_plan",
+  "input": {
+    "id": "e1",
+    "calendarId": "c",
+    "timeZone": "America/New_York",
+    "selectedSlot": {
+      "start": {
+        "epochMs": 1735826400000
+      },
+      "end": {
+        "epochMs": 1735830000000
+      }
+    }
+  },
+  "expected": {
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": true,
+    "result": {
+      "plan": {
+        "event": {
+          "availability": "busy",
+          "calendarId": "c",
+          "end": {
+            "epochMs": 1735830000000
+          },
+          "id": "e1",
+          "isAllDay": false,
+          "start": {
+            "epochMs": 1735826400000
+          },
+          "status": "confirmed",
+          "timeZone": "America/New_York"
+        },
+        "idempotencyKey": "279fd5e5cf4bced27249def7edb86da1ddfe8d000495ce829e2c0ddca706b6ea",
+        "inputHash": "7c9845081ecb68602ae61482e2ce2a1399a65bb591d4a5c7786352a23cf17e03",
+        "op": "create",
+        "planId": "279fd5e5cf4bced27249def7edb86da1ddfe8d000495ce829e2c0ddca706b6ea"
+      },
+      "policyProfile": "default",
+      "policyVersion": "2026.1"
+    }
+  }
+}

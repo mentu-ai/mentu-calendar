@@ -1,0 +1,43 @@
+{
+  "op": "find_slots",
+  "input": {
+    "timeZone": "America/New_York",
+    "candidateWindows": [
+      {
+        "start": {
+          "epochMs": 1735826400000
+        },
+        "end": {
+          "epochMs": 1735855200000
+        }
+      }
+    ],
+    "durationMinutes": 60,
+    "constraints": {
+      "businessHours": [
+        {
+          "weekday": 1,
+          "start": "09:00",
+          "end": "17:00"
+        }
+      ]
+    }
+  },
+  "expected": {
+    "error": {
+      "code": "MISSING_DST_POLICY",
+      "details": {},
+      "message": "dstPolicy is required when businessHours are given (wall-clock resolution)",
+      "retryable": false
+    },
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": false
+  }
+}

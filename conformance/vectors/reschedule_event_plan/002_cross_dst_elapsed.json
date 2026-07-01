@@ -1,0 +1,68 @@
+{
+  "op": "reschedule_event_plan",
+  "input": {
+    "event": {
+      "id": "e1",
+      "calendarId": "c",
+      "timeZone": "America/New_York",
+      "start": {
+        "epochMs": 1735844400000
+      },
+      "end": {
+        "epochMs": 1735848000000
+      }
+    },
+    "newStart": {
+      "year": 2025,
+      "month": 3,
+      "day": 9,
+      "hour": 1,
+      "minute": 30,
+      "second": 0
+    },
+    "durationPolicy": "preserveElapsed",
+    "dstPolicy": {
+      "gap": "earliest",
+      "overlap": "earliest"
+    }
+  },
+  "expected": {
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": true,
+    "result": {
+      "plan": {
+        "durationPolicy": "preserveElapsed",
+        "events": [
+          {
+            "calendarId": "c",
+            "end": {
+              "epochMs": 1741505400000
+            },
+            "id": "e1",
+            "originalStart": {
+              "epochMs": 1735844400000
+            },
+            "start": {
+              "epochMs": 1741501800000
+            },
+            "timeZone": "America/New_York"
+          }
+        ],
+        "idempotencyKey": "d3894b03daba71bf866735f153b1d7527d20426b3a318aec4098a61415983e2e",
+        "inputHash": "ab83f2afa835b32555f279caf269b031c77833a92efbe0057571cd573e7660f3",
+        "op": "update",
+        "planId": "d3894b03daba71bf866735f153b1d7527d20426b3a318aec4098a61415983e2e",
+        "span": "thisEvent"
+      },
+      "policyProfile": "default",
+      "policyVersion": "2026.1"
+    }
+  }
+}

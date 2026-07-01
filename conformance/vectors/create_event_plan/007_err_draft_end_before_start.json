@@ -1,0 +1,57 @@
+{
+  "op": "create_event_plan",
+  "input": {
+    "calendarId": "c",
+    "dstPolicy": {
+      "gap": "earliest",
+      "overlap": "earliest"
+    },
+    "draft": {
+      "id": "e1",
+      "calendarId": "c",
+      "timeZone": "America/New_York",
+      "start": {
+        "year": 2025,
+        "month": 3,
+        "day": 10,
+        "hour": 10,
+        "minute": 0,
+        "second": 0
+      },
+      "end": {
+        "year": 2025,
+        "month": 3,
+        "day": 10,
+        "hour": 9,
+        "minute": 0,
+        "second": 0
+      }
+    }
+  },
+  "expected": {
+    "error": {
+      "code": "INVALID_INTERVAL",
+      "details": {
+        "interval": {
+          "end": {
+            "epochMs": 1741611600000
+          },
+          "start": {
+            "epochMs": 1741615200000
+          }
+        }
+      },
+      "message": "Interval end must not precede its start",
+      "retryable": false
+    },
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": false
+  }
+}

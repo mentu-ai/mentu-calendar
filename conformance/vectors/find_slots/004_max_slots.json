@@ -1,0 +1,61 @@
+{
+  "op": "find_slots",
+  "input": {
+    "timeZone": "America/New_York",
+    "candidateWindows": [
+      {
+        "start": {
+          "epochMs": 1735826400000
+        },
+        "end": {
+          "epochMs": 1735855200000
+        }
+      }
+    ],
+    "events": [],
+    "durationMinutes": 30,
+    "maxSlots": 3
+  },
+  "expected": {
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": true,
+    "result": {
+      "policyProfile": "default",
+      "policyVersion": "2026.1",
+      "ranking": "earliest",
+      "slots": [
+        {
+          "end": {
+            "epochMs": 1735828200000
+          },
+          "start": {
+            "epochMs": 1735826400000
+          }
+        },
+        {
+          "end": {
+            "epochMs": 1735830000000
+          },
+          "start": {
+            "epochMs": 1735828200000
+          }
+        },
+        {
+          "end": {
+            "epochMs": 1735831800000
+          },
+          "start": {
+            "epochMs": 1735830000000
+          }
+        }
+      ]
+    }
+  }
+}

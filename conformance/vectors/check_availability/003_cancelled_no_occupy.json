@@ -1,0 +1,49 @@
+{
+  "op": "check_availability",
+  "input": {
+    "window": {
+      "start": {
+        "epochMs": 1735808400000
+      },
+      "end": {
+        "epochMs": 1735837200000
+      }
+    },
+    "events": [
+      {
+        "id": "a",
+        "start": {
+          "epochMs": 1735812000000
+        },
+        "end": {
+          "epochMs": 1735815600000
+        },
+        "status": "cancelled"
+      }
+    ]
+  },
+  "expected": {
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": true,
+    "result": {
+      "busy": [],
+      "free": [
+        {
+          "end": {
+            "epochMs": 1735837200000
+          },
+          "start": {
+            "epochMs": 1735808400000
+          }
+        }
+      ]
+    }
+  }
+}

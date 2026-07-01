@@ -1,0 +1,53 @@
+{
+  "op": "cancel_event_plan",
+  "input": {
+    "event": {
+      "id": "e1",
+      "calendarId": "c",
+      "timeZone": "America/New_York",
+      "start": {
+        "epochMs": 1735844400000
+      },
+      "end": {
+        "epochMs": 1735848000000
+      }
+    },
+    "span": "all"
+  },
+  "expected": {
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": true,
+    "result": {
+      "plan": {
+        "event": {
+          "availability": "busy",
+          "calendarId": "c",
+          "end": {
+            "epochMs": 1735848000000
+          },
+          "id": "e1",
+          "isAllDay": false,
+          "start": {
+            "epochMs": 1735844400000
+          },
+          "status": "cancelled",
+          "timeZone": "America/New_York"
+        },
+        "idempotencyKey": "2564405346b9cf109ee6f26f4c65077a05c1891ceb19aa2df4fe1f99333789f9",
+        "inputHash": "c53c167115b48673a12c3719bef80f7334450de0d772302aa254a4429b829fcf",
+        "op": "cancel",
+        "planId": "2564405346b9cf109ee6f26f4c65077a05c1891ceb19aa2df4fe1f99333789f9",
+        "span": "all"
+      },
+      "policyProfile": "default",
+      "policyVersion": "2026.1"
+    }
+  }
+}

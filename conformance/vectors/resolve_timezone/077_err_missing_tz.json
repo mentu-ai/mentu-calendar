@@ -1,0 +1,23 @@
+{
+  "op": "resolve_timezone",
+  "input": {
+    "zoneId": ""
+  },
+  "expected": {
+    "error": {
+      "code": "MISSING_TIME_ZONE",
+      "details": {},
+      "message": "zoneId is required",
+      "retryable": false
+    },
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": false
+  }
+}

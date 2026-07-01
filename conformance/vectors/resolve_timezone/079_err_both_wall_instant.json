@@ -1,0 +1,38 @@
+{
+  "op": "resolve_timezone",
+  "input": {
+    "zoneId": "UTC",
+    "wall": {
+      "year": 2025,
+      "month": 1,
+      "day": 1,
+      "hour": 0,
+      "minute": 0,
+      "second": 0
+    },
+    "instant": {
+      "epochMs": 1735689600000
+    },
+    "dstPolicy": {
+      "gap": "earliest",
+      "overlap": "earliest"
+    }
+  },
+  "expected": {
+    "error": {
+      "code": "SCHEMA_VALIDATION_ERROR",
+      "details": {},
+      "message": "Provide exactly one of `wall` or `instant`",
+      "retryable": false
+    },
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": false
+  }
+}

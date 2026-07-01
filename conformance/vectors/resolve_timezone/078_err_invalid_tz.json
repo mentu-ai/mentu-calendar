@@ -1,0 +1,28 @@
+{
+  "op": "resolve_timezone",
+  "input": {
+    "zoneId": "Nowhere/Nope",
+    "instant": {
+      "epochMs": 1735689600000
+    }
+  },
+  "expected": {
+    "error": {
+      "code": "INVALID_TIME_ZONE",
+      "details": {
+        "zoneId": "Nowhere/Nope"
+      },
+      "message": "Time zone is not available in the vendored bundle: Nowhere/Nope",
+      "retryable": false
+    },
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": false
+  }
+}

@@ -1,0 +1,264 @@
+{
+  "op": "expand_recurrence",
+  "input": {
+    "dstPolicy": {
+      "gap": "reject",
+      "overlap": "reject"
+    },
+    "master": {
+      "id": "m",
+      "calendarId": "c",
+      "start": {
+        "year": 2025,
+        "month": 2,
+        "day": 2,
+        "hour": 1,
+        "minute": 30,
+        "second": 0
+      },
+      "end": {
+        "year": 2025,
+        "month": 2,
+        "day": 2,
+        "hour": 2,
+        "minute": 30,
+        "second": 0
+      },
+      "timeZone": "Europe/Dublin",
+      "recurrenceRule": {
+        "frequency": "HOURLY",
+        "interval": 2,
+        "byMonthDay": [
+          1,
+          30
+        ],
+        "count": 15
+      }
+    }
+  },
+  "expected": {
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": true,
+    "result": {
+      "occurrences": [
+        {
+          "calendarId": "c",
+          "endInstant": {
+            "epochMs": 1740796200000
+          },
+          "id": "m",
+          "originalStart": {
+            "epochMs": 1740792600000
+          },
+          "source": "recurrence",
+          "startInstant": {
+            "epochMs": 1740792600000
+          }
+        },
+        {
+          "calendarId": "c",
+          "endInstant": {
+            "epochMs": 1740803400000
+          },
+          "id": "m",
+          "originalStart": {
+            "epochMs": 1740799800000
+          },
+          "source": "recurrence",
+          "startInstant": {
+            "epochMs": 1740799800000
+          }
+        },
+        {
+          "calendarId": "c",
+          "endInstant": {
+            "epochMs": 1740810600000
+          },
+          "id": "m",
+          "originalStart": {
+            "epochMs": 1740807000000
+          },
+          "source": "recurrence",
+          "startInstant": {
+            "epochMs": 1740807000000
+          }
+        },
+        {
+          "calendarId": "c",
+          "endInstant": {
+            "epochMs": 1740817800000
+          },
+          "id": "m",
+          "originalStart": {
+            "epochMs": 1740814200000
+          },
+          "source": "recurrence",
+          "startInstant": {
+            "epochMs": 1740814200000
+          }
+        },
+        {
+          "calendarId": "c",
+          "endInstant": {
+            "epochMs": 1740825000000
+          },
+          "id": "m",
+          "originalStart": {
+            "epochMs": 1740821400000
+          },
+          "source": "recurrence",
+          "startInstant": {
+            "epochMs": 1740821400000
+          }
+        },
+        {
+          "calendarId": "c",
+          "endInstant": {
+            "epochMs": 1740832200000
+          },
+          "id": "m",
+          "originalStart": {
+            "epochMs": 1740828600000
+          },
+          "source": "recurrence",
+          "startInstant": {
+            "epochMs": 1740828600000
+          }
+        },
+        {
+          "calendarId": "c",
+          "endInstant": {
+            "epochMs": 1740839400000
+          },
+          "id": "m",
+          "originalStart": {
+            "epochMs": 1740835800000
+          },
+          "source": "recurrence",
+          "startInstant": {
+            "epochMs": 1740835800000
+          }
+        },
+        {
+          "calendarId": "c",
+          "endInstant": {
+            "epochMs": 1740846600000
+          },
+          "id": "m",
+          "originalStart": {
+            "epochMs": 1740843000000
+          },
+          "source": "recurrence",
+          "startInstant": {
+            "epochMs": 1740843000000
+          }
+        },
+        {
+          "calendarId": "c",
+          "endInstant": {
+            "epochMs": 1740853800000
+          },
+          "id": "m",
+          "originalStart": {
+            "epochMs": 1740850200000
+          },
+          "source": "recurrence",
+          "startInstant": {
+            "epochMs": 1740850200000
+          }
+        },
+        {
+          "calendarId": "c",
+          "endInstant": {
+            "epochMs": 1740861000000
+          },
+          "id": "m",
+          "originalStart": {
+            "epochMs": 1740857400000
+          },
+          "source": "recurrence",
+          "startInstant": {
+            "epochMs": 1740857400000
+          }
+        },
+        {
+          "calendarId": "c",
+          "endInstant": {
+            "epochMs": 1740868200000
+          },
+          "id": "m",
+          "originalStart": {
+            "epochMs": 1740864600000
+          },
+          "source": "recurrence",
+          "startInstant": {
+            "epochMs": 1740864600000
+          }
+        },
+        {
+          "calendarId": "c",
+          "endInstant": {
+            "epochMs": 1740875400000
+          },
+          "id": "m",
+          "originalStart": {
+            "epochMs": 1740871800000
+          },
+          "source": "recurrence",
+          "startInstant": {
+            "epochMs": 1740871800000
+          }
+        },
+        {
+          "calendarId": "c",
+          "endInstant": {
+            "epochMs": 1743305400000
+          },
+          "id": "m",
+          "originalStart": {
+            "epochMs": 1743301800000
+          },
+          "source": "recurrence",
+          "startInstant": {
+            "epochMs": 1743301800000
+          }
+        },
+        {
+          "calendarId": "c",
+          "endInstant": {
+            "epochMs": 1743312600000
+          },
+          "id": "m",
+          "originalStart": {
+            "epochMs": 1743309000000
+          },
+          "source": "recurrence",
+          "startInstant": {
+            "epochMs": 1743309000000
+          }
+        },
+        {
+          "calendarId": "c",
+          "endInstant": {
+            "epochMs": 1743319800000
+          },
+          "id": "m",
+          "originalStart": {
+            "epochMs": 1743316200000
+          },
+          "source": "recurrence",
+          "startInstant": {
+            "epochMs": 1743316200000
+          }
+        }
+      ]
+    }
+  }
+}

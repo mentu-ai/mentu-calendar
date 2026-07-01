@@ -1,0 +1,103 @@
+{
+  "op": "find_slots",
+  "input": {
+    "timeZone": "America/New_York",
+    "candidateWindows": [
+      {
+        "start": {
+          "epochMs": 1735826400000
+        },
+        "end": {
+          "epochMs": 1735855200000
+        }
+      }
+    ],
+    "events": [
+      {
+        "id": "m",
+        "start": {
+          "epochMs": 1735830000000
+        },
+        "end": {
+          "epochMs": 1735833600000
+        }
+      },
+      {
+        "id": "n",
+        "start": {
+          "epochMs": 1735844400000
+        },
+        "end": {
+          "epochMs": 1735848000000
+        }
+      }
+    ],
+    "durationMinutes": 60
+  },
+  "expected": {
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": true,
+    "result": {
+      "policyProfile": "default",
+      "policyVersion": "2026.1",
+      "ranking": "earliest",
+      "slots": [
+        {
+          "end": {
+            "epochMs": 1735830000000
+          },
+          "start": {
+            "epochMs": 1735826400000
+          }
+        },
+        {
+          "end": {
+            "epochMs": 1735837200000
+          },
+          "start": {
+            "epochMs": 1735833600000
+          }
+        },
+        {
+          "end": {
+            "epochMs": 1735840800000
+          },
+          "start": {
+            "epochMs": 1735837200000
+          }
+        },
+        {
+          "end": {
+            "epochMs": 1735844400000
+          },
+          "start": {
+            "epochMs": 1735840800000
+          }
+        },
+        {
+          "end": {
+            "epochMs": 1735851600000
+          },
+          "start": {
+            "epochMs": 1735848000000
+          }
+        },
+        {
+          "end": {
+            "epochMs": 1735855200000
+          },
+          "start": {
+            "epochMs": 1735851600000
+          }
+        }
+      ]
+    }
+  }
+}

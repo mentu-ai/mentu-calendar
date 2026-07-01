@@ -1,0 +1,20 @@
+{
+  "op": "detect_conflicts",
+  "input": {
+    "events": []
+  },
+  "expected": {
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": true,
+    "result": {
+      "conflicts": []
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "op": "create_event_plan",
+  "input": {
+    "calendarId": "c",
+    "timeZone": "America/New_York",
+    "dstPolicy": {
+      "gap": "earliest",
+      "overlap": "earliest"
+    },
+    "draft": {
+      "id": "e1",
+      "calendarId": "c",
+      "start": {
+        "year": 2025,
+        "month": 1,
+        "day": 2,
+        "hour": 9,
+        "minute": 0,
+        "second": 0
+      },
+      "end": {
+        "year": 2025,
+        "month": 1,
+        "day": 2,
+        "hour": 10,
+        "minute": 0,
+        "second": 0
+      }
+    }
+  },
+  "expected": {
+    "error": {
+      "code": "SCHEMA_VALIDATION_ERROR",
+      "details": {},
+      "message": "draft.timeZone must be a string",
+      "retryable": false
+    },
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": false
+  }
+}

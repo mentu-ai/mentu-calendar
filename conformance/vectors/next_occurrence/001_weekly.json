@@ -1,0 +1,69 @@
+{
+  "op": "next_occurrence",
+  "input": {
+    "master": {
+      "id": "m",
+      "calendarId": "c",
+      "start": {
+        "year": 2025,
+        "month": 1,
+        "day": 1,
+        "hour": 9,
+        "minute": 0,
+        "second": 0
+      },
+      "end": {
+        "year": 2025,
+        "month": 1,
+        "day": 1,
+        "hour": 9,
+        "minute": 30,
+        "second": 0
+      },
+      "timeZone": "America/New_York",
+      "recurrenceRule": {
+        "frequency": "WEEKLY",
+        "byDay": [
+          {
+            "weekday": 1
+          }
+        ],
+        "wkst": 1
+      }
+    },
+    "dstPolicy": {
+      "gap": "earliest",
+      "overlap": "earliest"
+    },
+    "after": {
+      "epochMs": 1735750800000
+    }
+  },
+  "expected": {
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": true,
+    "result": {
+      "occurrence": {
+        "calendarId": "c",
+        "endInstant": {
+          "epochMs": 1736173800000
+        },
+        "id": "m",
+        "originalStart": {
+          "epochMs": 1736172000000
+        },
+        "source": "recurrence",
+        "startInstant": {
+          "epochMs": 1736172000000
+        }
+      }
+    }
+  }
+}

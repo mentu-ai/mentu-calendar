@@ -1,0 +1,37 @@
+{
+  "op": "resolve_timezone",
+  "input": {
+    "zoneId": "Europe/Istanbul",
+    "instant": {
+      "epochMs": 648043200000
+    }
+  },
+  "expected": {
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": true,
+    "result": {
+      "abbreviation": "EEST",
+      "fold": 0,
+      "instant": {
+        "epochMs": 648043200000
+      },
+      "offsetSeconds": 10800,
+      "resolution": "exact",
+      "wall": {
+        "day": 15,
+        "hour": 15,
+        "minute": 0,
+        "month": 7,
+        "second": 0,
+        "year": 1990
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "op": "resolve_timezone",
+  "input": {
+    "zoneId": "Asia/Singapore",
+    "instant": {
+      "epochMs": 1736942400000
+    }
+  },
+  "expected": {
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": true,
+    "result": {
+      "abbreviation": "+08",
+      "fold": 0,
+      "instant": {
+        "epochMs": 1736942400000
+      },
+      "offsetSeconds": 28800,
+      "resolution": "exact",
+      "wall": {
+        "day": 15,
+        "hour": 20,
+        "minute": 0,
+        "month": 1,
+        "second": 0,
+        "year": 2025
+      }
+    }
+  }
+}

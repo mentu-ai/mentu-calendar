@@ -1,0 +1,45 @@
+{
+  "op": "resolve_timezone",
+  "input": {
+    "zoneId": "America/New_York",
+    "wall": {
+      "year": 2025,
+      "month": 3,
+      "day": 9,
+      "hour": 2,
+      "minute": 30,
+      "second": 0
+    },
+    "dstPolicy": {
+      "gap": "reject",
+      "overlap": "earliest"
+    }
+  },
+  "expected": {
+    "error": {
+      "code": "NONEXISTENT_WALL_TIME",
+      "details": {
+        "wall": {
+          "day": 9,
+          "hour": 2,
+          "minute": 30,
+          "month": 3,
+          "second": 0,
+          "year": 2025
+        },
+        "zoneId": "America/New_York"
+      },
+      "message": "Wall time does not exist (spring-forward gap)",
+      "retryable": false
+    },
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": false
+  }
+}

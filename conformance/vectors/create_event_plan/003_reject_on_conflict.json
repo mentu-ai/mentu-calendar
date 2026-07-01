@@ -1,0 +1,60 @@
+{
+  "op": "create_event_plan",
+  "input": {
+    "id": "e1",
+    "calendarId": "c",
+    "timeZone": "America/New_York",
+    "selectedSlot": {
+      "start": {
+        "epochMs": 1735826400000
+      },
+      "end": {
+        "epochMs": 1735830000000
+      }
+    },
+    "rejectOnConflict": true,
+    "existing": [
+      {
+        "id": "x",
+        "start": {
+          "epochMs": 1735828200000
+        },
+        "end": {
+          "epochMs": 1735831800000
+        }
+      }
+    ]
+  },
+  "expected": {
+    "error": {
+      "code": "CONFLICT_FOUND",
+      "details": {
+        "conflicts": [
+          {
+            "a": "e1",
+            "b": "x",
+            "overlap": {
+              "end": {
+                "epochMs": 1735830000000
+              },
+              "start": {
+                "epochMs": 1735828200000
+              }
+            }
+          }
+        ]
+      },
+      "message": "Planned event conflicts with 1 existing event(s)",
+      "retryable": false
+    },
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": false
+  }
+}

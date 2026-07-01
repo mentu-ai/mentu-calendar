@@ -1,0 +1,60 @@
+{
+  "op": "detect_conflicts",
+  "input": {
+    "events": [
+      {
+        "id": "a",
+        "start": {
+          "epochMs": 1735722000000
+        },
+        "end": {
+          "epochMs": 1735729200000
+        }
+      },
+      {
+        "id": "b",
+        "start": {
+          "epochMs": 1735725600000
+        },
+        "end": {
+          "epochMs": 1735732800000
+        }
+      }
+    ],
+    "window": {
+      "start": {
+        "epochMs": 1735727400000
+      },
+      "end": {
+        "epochMs": 1735731000000
+      }
+    }
+  },
+  "expected": {
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": true,
+    "result": {
+      "conflicts": [
+        {
+          "a": "a",
+          "b": "b",
+          "overlap": {
+            "end": {
+              "epochMs": 1735729200000
+            },
+            "start": {
+              "epochMs": 1735727400000
+            }
+          }
+        }
+      ]
+    }
+  }
+}

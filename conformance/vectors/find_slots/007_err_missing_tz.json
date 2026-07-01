@@ -1,0 +1,33 @@
+{
+  "op": "find_slots",
+  "input": {
+    "candidateWindows": [
+      {
+        "start": {
+          "epochMs": 1735826400000
+        },
+        "end": {
+          "epochMs": 1735855200000
+        }
+      }
+    ],
+    "durationMinutes": 60
+  },
+  "expected": {
+    "error": {
+      "code": "MISSING_TIME_ZONE",
+      "details": {},
+      "message": "timeZone is required",
+      "retryable": false
+    },
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": false
+  }
+}

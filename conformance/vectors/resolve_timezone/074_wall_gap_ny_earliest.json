@@ -1,0 +1,46 @@
+{
+  "op": "resolve_timezone",
+  "input": {
+    "zoneId": "America/New_York",
+    "wall": {
+      "year": 2025,
+      "month": 3,
+      "day": 9,
+      "hour": 2,
+      "minute": 30,
+      "second": 0
+    },
+    "dstPolicy": {
+      "gap": "earliest",
+      "overlap": "earliest"
+    }
+  },
+  "expected": {
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": true,
+    "result": {
+      "abbreviation": "EST",
+      "fold": 0,
+      "instant": {
+        "epochMs": 1741501800000
+      },
+      "offsetSeconds": -18000,
+      "resolution": "gap",
+      "wall": {
+        "day": 9,
+        "hour": 1,
+        "minute": 30,
+        "month": 3,
+        "second": 0,
+        "year": 2025
+      }
+    }
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "op": "expand_recurrence",
+  "input": {
+    "master": {
+      "id": "m",
+      "calendarId": "c",
+      "start": {
+        "year": 2025,
+        "month": 3,
+        "day": 7,
+        "hour": 2,
+        "minute": 30,
+        "second": 0
+      },
+      "end": {
+        "year": 2025,
+        "month": 3,
+        "day": 7,
+        "hour": 3,
+        "minute": 0,
+        "second": 0
+      },
+      "timeZone": "America/New_York",
+      "recurrenceRule": {
+        "frequency": "DAILY",
+        "count": 5
+      }
+    },
+    "dstPolicy": {
+      "gap": "earliest",
+      "overlap": "earliest"
+    }
+  },
+  "expected": {
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": true,
+    "result": {
+      "occurrences": [
+        {
+          "calendarId": "c",
+          "endInstant": {
+            "epochMs": 1741334400000
+          },
+          "id": "m",
+          "originalStart": {
+            "epochMs": 1741332600000
+          },
+          "source": "recurrence",
+          "startInstant": {
+            "epochMs": 1741332600000
+          }
+        },
+        {
+          "calendarId": "c",
+          "endInstant": {
+            "epochMs": 1741420800000
+          },
+          "id": "m",
+          "originalStart": {
+            "epochMs": 1741419000000
+          },
+          "source": "recurrence",
+          "startInstant": {
+            "epochMs": 1741419000000
+          }
+        },
+        {
+          "calendarId": "c",
+          "endInstant": {
+            "epochMs": 1741503600000
+          },
+          "id": "m",
+          "originalStart": {
+            "epochMs": 1741501800000
+          },
+          "source": "recurrence",
+          "startInstant": {
+            "epochMs": 1741501800000
+          }
+        },
+        {
+          "calendarId": "c",
+          "endInstant": {
+            "epochMs": 1741590000000
+          },
+          "id": "m",
+          "originalStart": {
+            "epochMs": 1741588200000
+          },
+          "source": "recurrence",
+          "startInstant": {
+            "epochMs": 1741588200000
+          }
+        },
+        {
+          "calendarId": "c",
+          "endInstant": {
+            "epochMs": 1741676400000
+          },
+          "id": "m",
+          "originalStart": {
+            "epochMs": 1741674600000
+          },
+          "source": "recurrence",
+          "startInstant": {
+            "epochMs": 1741674600000
+          }
+        }
+      ]
+    }
+  }
+}

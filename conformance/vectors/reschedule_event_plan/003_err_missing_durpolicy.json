@@ -1,0 +1,36 @@
+{
+  "op": "reschedule_event_plan",
+  "input": {
+    "event": {
+      "id": "e1",
+      "calendarId": "c",
+      "timeZone": "America/New_York",
+      "start": {
+        "epochMs": 1735844400000
+      },
+      "end": {
+        "epochMs": 1735848000000
+      }
+    },
+    "newStart": {
+      "epochMs": 1735833600000
+    }
+  },
+  "expected": {
+    "error": {
+      "code": "SCHEMA_VALIDATION_ERROR",
+      "details": {},
+      "message": "durationPolicy is required",
+      "retryable": false
+    },
+    "meta": {
+      "engine": "calendar-tool",
+      "engineVersion": "0.1.2",
+      "icu": "none",
+      "policyVersion": "2026.1",
+      "schemaVersion": "0.1",
+      "tzdata": "2025b"
+    },
+    "ok": false
+  }
+}
