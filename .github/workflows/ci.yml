@@ -1,0 +1,62 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request: {}
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python -m pip install --upgrade pip
+      - run: pip install -e ".[dev]"
+      - name: Lint (ruff)
+        run: ruff check .
+      - name: Types (mypy)
+        run: mypy
+      - name: Tests — unit + conformance, offline (network-denied test included)
+        run: pytest -q
+      - name: Conformance vectors
+        run: python conformance/run.py
+      - name: Dependency audit
+        run: pip-audit
+
+  supply-chain:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+      attestations: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --upgrade pip build cyclonedx-bom
+      - name: Build wheel + sdist
+        run: python -m build
+      - name: SBOM (CycloneDX)
+        run: |
+          pip install .
+          cyclonedx-py environment -o sbom.json
+      - name: Build provenance attestation (SLSA)
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: dist/*
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist-and-sbom
+          path: |
+            dist/*
+            sbom.json
