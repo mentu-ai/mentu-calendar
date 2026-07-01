@@ -1,0 +1,11 @@
+mentu-calendar
+Copyright 2026 Rashid Azarang
+
+This product is a clean-room implementation of public standards: RFC 5545 (iCalendar
+recurrence), RFC 8536 (TZif), and the public IANA time zone database.
+
+It depends on:
+  - python-dateutil (Apache-2.0 / BSD-3-Clause) — an independent RFC 5545 implementation.
+  - tzdata (Apache-2.0) — the public IANA time zone database packaged for Python.
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
