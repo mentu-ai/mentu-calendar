@@ -10,6 +10,7 @@ inputs. It runs offline against the pinned ``tzdata`` wheel, so results are dete
 from __future__ import annotations
 
 import random
+import zoneinfo
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -17,6 +18,10 @@ import pytest
 from dateutil.rrule import DAILY, MONTHLY, WEEKLY, YEARLY, rrule
 
 from mentu_calendar import dispatch
+
+# Resolve the reference zones from the pinned `tzdata` wheel, not the host's system tz database, so this
+# cross-check uses the SAME IANA release (2025b) the engine does — deterministic and host-independent.
+zoneinfo.reset_tzpath(to=[])
 
 ZONES = [
     "UTC",
@@ -89,14 +94,23 @@ def test_expand_recurrence_matches_dateutil(freq_name: str, freq: int) -> None:
         assert out["ok"], out
         got = [o["startInstant"]["epochMs"] for o in out["result"]["occurrences"]]
 
-        # independent reference: dateutil for the nominal walls, zoneinfo (fold=0 = earliest) for the instant
+        # Independent reference: dateutil for the nominal walls, zoneinfo for the instant. For an
+        # UNAMBIGUOUS wall the two must agree exactly. A DST gap/overlap wall resolves by the engine's
+        # explicit dstPolicy (which is NOT zoneinfo's fold=0), so those are locked by the conformance
+        # vectors and skipped here. With gap/overlap = earliest the engine never drops an occurrence,
+        # so `got` stays index-aligned with the nominal sequence.
         tz = ZoneInfo(zone)
-        expected = []
-        for dt in rrule(freq, dtstart=datetime(y, mo, d, h, 0, 0), interval=interval, count=count):
-            local = dt.replace(tzinfo=tz, fold=0)
-            expected.append(int(local.timestamp()) * 1000)
-        expected.sort()
-        assert got == expected, (freq_name, zone, master["start"], got, expected)
+        noms = list(rrule(freq, dtstart=datetime(y, mo, d, h, 0, 0), interval=interval, count=count))
+        assert len(got) == len(noms), (freq_name, zone, master["start"])
+        for i, dt in enumerate(noms):
+            if dt.replace(tzinfo=tz, fold=0).utcoffset() != dt.replace(tzinfo=tz, fold=1).utcoffset():
+                continue  # DST gap/overlap — policy-specific, validated by the conformance vectors
+            assert got[i] == int(dt.replace(tzinfo=tz, fold=0).timestamp()) * 1000, (
+                freq_name,
+                zone,
+                master["start"],
+                i,
+            )
 
 
 def test_find_slots_grid_matches_naive_computation() -> None:
