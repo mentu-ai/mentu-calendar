@@ -1,5 +1,10 @@
 # mentu-calendar
 
+[![CI](https://github.com/mentu-ai/mentu-calendar/actions/workflows/ci.yml/badge.svg)](https://github.com/mentu-ai/mentu-calendar/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/mentu-calendar.svg)](https://pypi.org/project/mentu-calendar/)
+[![Python](https://img.shields.io/pypi/pyversions/mentu-calendar.svg)](https://pypi.org/project/mentu-calendar/)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](./LICENSE)
+
 Deterministic, offline, host-independent calendar scheduling for agents and services. Structured JSON
 in → structured JSON out, with **byte-identical** output on any machine.
 
@@ -79,7 +84,16 @@ python conformance/run.py            # against the installed package
 ```
 
 Correctness is additionally locked by property tests (determinism, offline, host-state independence)
-and differential testing against an independent implementation over thousands of randomized inputs.
+and by [`tests/test_reference_crosscheck.py`](./tests/test_reference_crosscheck.py), which recomputes
+the expected answers independently — timezone resolution with the standard-library `zoneinfo`,
+recurrence with a plain `dateutil.rrule` — over thousands of seeded inputs. Every claim in this README
+is reproducible with `pytest` + `python conformance/run.py`.
+
+## Adopting this as a dependency
+
+Evaluating it for a team (including regulated environments)? [`docs/ADOPTING.md`](./docs/ADOPTING.md)
+maps every claim to the command that proves it — verify it yourself, offline, in ~10 minutes; it also
+covers provenance, supply chain (SBOM + SLSA attestation), versioning/stability, and vendoring.
 
 ## Guarantees
 

@@ -16,5 +16,6 @@ Initial release.
 - Three interfaces: library (`from mentu_calendar import dispatch`), CLI (`mentu-calendar`), and a
   dependency-free stdio MCP server (`mentu-calendar-mcp`).
 - Correctness validated by the conformance vectors plus property tests (determinism, offline,
-  host-state independence) and differential testing against an independent implementation over
-  thousands of randomized inputs; recurrence expansion is resource-bounded.
+  host-state independence) and reproducible cross-checks against the reference libraries `zoneinfo`
+  and `dateutil` (`tests/test_reference_crosscheck.py`); recurrence expansion is resource-bounded.
+- Adopter guide (`docs/ADOPTING.md`), `CONTRIBUTING.md`, and `CODE_OF_CONDUCT.md`.
