@@ -9,18 +9,23 @@ Deterministic, offline, host-independent calendar scheduling for agents and serv
 in → structured JSON out, with **byte-identical** output on any machine.
 
 A clean-room implementation of **RFC 5545** (recurrence), **RFC 8536** (TZif), and the **IANA tzdata**
-database — no ambient clock (you pass `now`), no host time zone (time zones are explicit), no network,
+database. No ambient clock (you pass `now`), no host time zone (time zones are explicit), no network,
 no state.
 
 ## Why
 
-- **Deterministic** — the same input JSON produces byte-identical output JSON. Reproducible in your
+- **Deterministic**: the same input JSON produces byte-identical output JSON. Reproducible in your
   own CI against the published conformance vectors.
-- **Offline & host-independent** — no network, no host clock, no host time-zone database. Zones come
+- **Offline and host-independent**: no network, no host clock, no host time-zone database. Zones come
   from a pinned IANA release (the `tzdata` wheel), read per-zone.
-- **Half-open `[start, end)` intervals** — back-to-back events do not conflict.
-- **Auditable & vendorable** — pure Python, Apache-2.0, zero closed binaries; installs clean and
+- **Half-open `[start, end)` intervals**: back-to-back events do not conflict.
+- **Auditable and vendorable**: pure Python, Apache-2.0, zero closed binaries; installs clean and
   passes standard dependency scanning (`pip-audit`, SBOM).
+
+Published by the Mentu project and standalone by design. It does not import or
+require any other Mentu component, and its only runtime dependencies are
+`python-dateutil` and the pinned `tzdata` wheel. Any agent runtime can use it
+over MCP.
 
 ## Install
 
@@ -55,7 +60,7 @@ Exit codes: `0` success, `1` operation error, `2` CLI/input error.
 `resolve_timezone`, `check_availability`, `detect_conflicts`, `find_slots`, `create_event_plan`,
 `reschedule_event_plan`, `cancel_event_plan`, `expand_recurrence`, `next_occurrence`.
 
-Mutating operations return **plans/diffs only** — a provider adapter performs any live writes.
+Mutating operations return **plans/diffs only**. A provider adapter performs any live writes.
 
 ## MCP server
 
@@ -76,8 +81,8 @@ Example Claude Desktop config:
 
 The full specification is [`spec/SPEC.md`](./spec/SPEC.md); the versioned request schemas are in
 [`spec/schemas/`](./spec/schemas) (JSON Schema draft 2020-12). Golden `{ input, expected }` fixtures
-under [`conformance/vectors/`](./conformance/vectors) are the binding definition of correct behavior —
-run them against your build:
+under [`conformance/vectors/`](./conformance/vectors) are the binding definition of correct behavior.
+Run them against your build:
 
 ```bash
 python conformance/run.py            # against the installed package
@@ -85,27 +90,27 @@ python conformance/run.py            # against the installed package
 
 Correctness is additionally locked by property tests (determinism, offline, host-state independence)
 and by [`tests/test_reference_crosscheck.py`](./tests/test_reference_crosscheck.py), which recomputes
-the expected answers independently — timezone resolution with the standard-library `zoneinfo`,
-recurrence with a plain `dateutil.rrule` — over thousands of seeded inputs. Every claim in this README
+the expected answers independently, timezone resolution with the standard-library `zoneinfo`
+and recurrence with a plain `dateutil.rrule`, over thousands of seeded inputs. Every claim in this README
 is reproducible with `pytest` + `python conformance/run.py`.
 
 ## Adopting this as a dependency
 
 Evaluating it for a team (including regulated environments)? [`docs/ADOPTING.md`](./docs/ADOPTING.md)
-maps every claim to the command that proves it — verify it yourself, offline, in ~10 minutes; it also
+maps every claim to the command that proves it. Verify it yourself, offline, in ~10 minutes. It also
 covers provenance, supply chain (SBOM + SLSA attestation), versioning/stability, and vendoring.
 
 ## Guarantees
 
-Fully offline, no telemetry, no ambient clock, no secrets, nothing leaves the process — see
+Fully offline, no telemetry, no ambient clock, no secrets, nothing leaves the process. See
 [`COMPLIANCE.md`](./COMPLIANCE.md). Security policy: [`SECURITY.md`](./SECURITY.md).
 
 ## Provenance
 
-A clean-room implementation of public standards — **RFC 5545**, **RFC 8536**, and the **IANA tzdata**
-database — built on the Python standard library (`zoneinfo`), `python-dateutil` (an independent RFC
+A clean-room implementation of public standards (**RFC 5545**, **RFC 8536**, and the **IANA tzdata**
+database), built on the Python standard library (`zoneinfo`), `python-dateutil` (an independent RFC
 5545 implementation), and the `tzdata` wheel. No proprietary code.
 
 ## License
 
-Apache-2.0 — see [`LICENSE`](./LICENSE) and [`NOTICE`](./NOTICE).
+Apache-2.0. See [`LICENSE`](./LICENSE) and [`NOTICE`](./NOTICE).
