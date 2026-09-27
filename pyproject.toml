@@ -9,7 +9,7 @@ description = "Deterministic, offline, host-independent calendar scheduling engi
 readme = "README.md"
 requires-python = ">=3.12"
 license = "Apache-2.0"
-license-files = ["LICENSE"]
+license-files = ["LICENSE", "NOTICE"]
 authors = [{ name = "Rashid Azarang", email = "rashid.azarang.eg@gmail.com" }]
 keywords = ["calendar", "scheduling", "rfc5545", "recurrence", "timezone", "availability", "deterministic"]
 classifiers = [

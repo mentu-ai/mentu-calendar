@@ -1,5 +1,5 @@
 mentu-calendar
-Copyright 2026 Rashid Azarang
+Copyright 2026 Mentu
 
 This product is a clean-room implementation of public standards: RFC 5545 (iCalendar
 recurrence), RFC 8536 (TZif), and the public IANA time zone database.
